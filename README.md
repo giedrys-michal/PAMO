@@ -24,4 +24,6 @@ dominik stec
 magdalena czubek  
 tablica miro:  
 konto pjwstk  
-https://miro.com/app/board/o9J_lOSuYk8=/
+https://miro.com/app/board/o9J_lOSuYk8=/  
+
+[Projekt Moje LEGO](https://github.com/giedrys-michal/PAMO-LEGO)  

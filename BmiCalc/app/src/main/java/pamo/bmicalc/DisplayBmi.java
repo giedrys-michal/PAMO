@@ -17,6 +17,6 @@ public class DisplayBmi extends AppCompatActivity {
         String result = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         TextView tv_bmiResult = findViewById(R.id.tv_displayBmi);
-        tv_bmiResult.setText(result);
+        tv_bmiResult.setText(String.format("BMI: %s", result));
     }
 }

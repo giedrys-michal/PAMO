@@ -1,0 +1,42 @@
+Prowadz¹cy: pczapiewski@sii.pl
+
+
+# Æwiczenia 01  23.02.2020
+Stwórz aplikacjê mobilnk¹, która realizuje funkcjonalnoœci kalkulatora BMI. U¿yj Javy i Android Studio.
+Termin: 8.03.2020
+
+Ocena koñcowa - projekt: prezentacja na ostatnich zajêciach;
+- Wysy³ka do prowadz¹cego - tydzieñ przed ostatnim zjazdem;
+
+
+# Æwiczenia 02 PAMO 21.03.2021
+Termin Realizacji 10.04.2021
+
+Rozszerz poprzedni¹ aplikacjê. Dodaj funkcjonalnoœci:
+- Ekran startowy.
+- Oblicz BMI.
+- Ile mogê zjeœæ kalorii (wzor Benedicta-Harrisa).
+- Co jeœæ w czasach CorivaVirusa? Rekomendacja przepisu.
+(weŸ pod uwagê BMI u¿ytkownika).
+
+Rozpocznij pracê nad Projektem Zaliczeniowym;
+- Wybierz zespó³ do pracy nad projektem; 
+- Za³ó¿ repozytorium do pracy nad projektem. Nadaj dostêpy do aplikacji;
+(dostêp zespó³ + prowadz¹cy)
+- Stwórz read.me na repo; tytu³ aplikacji;
+- Wybierz narzêdzie do œledzenia postêpów w projekcie;
+Wyœlij email do prowadz¹cego ze szczegó³ami.
+
+
+# Æwiczenia 03 PAMO 11.04.2021
+Deadline: 24.04.2021
+
+Samodzielnie zrealizuj 2 z 3 zaproponowanych funkcjonalnoœci (dodaj do istniej¹cej aplikacji):
+- Dodaj quiz testowy o koronawirusie/ zdrowej diecie/etc. (przynajmniej 6 pytañ);
+- Poka¿ wykres danych zmian BMI/ zachorowalnoœæ, wyleczenia, œmiertelnoœci w ró¿nych krajach, etc.
+- Gra w koronawirusy (strzelaæ szczepionk¹ w wirusy);
+
+Kontynuuj pracê na Projektem Zaliczeniowym:
+- listê funkcjonalnoœci do zrealizowania; rozwa¿ dodanie priorytetów;
+- dodaæ listê zadañ do systemu œledzenia postêpów; przypisaæ do konkretnych osób;
+

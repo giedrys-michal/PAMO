@@ -27,3 +27,13 @@ konto pjwstk
 https://miro.com/app/board/o9J_lOSuYk8=/  
 
 [Projekt Moje LEGO](https://github.com/giedrys-michal/PAMO-LEGO)  
+
+## Zjazd 3
+2 z 3 funkcjonalności na zaliczenie
+- dodać quiz testowy min 6 pyt
+- prostą grę
+- wykres danych zmian BMI/zachorowalności/(pokazać dane na wykresie)
+
+Do projektu:
+- lista funkcjonalności do zrealizowania (według priorytetów, te które muszą być zrobione i te które są opcjonalne)
+- dodać zadania do naszej tablicy trello

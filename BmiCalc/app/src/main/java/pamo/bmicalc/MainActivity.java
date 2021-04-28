@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void calculateBmi(View view) {
+    public void calculateBmi() {
         Intent intent = new Intent(this, DisplayBmi.class);
         EditText getHeight = (EditText) findViewById(R.id.text_editHeight);
         EditText getWeight = (EditText) findViewById(R.id.text_editWeight);

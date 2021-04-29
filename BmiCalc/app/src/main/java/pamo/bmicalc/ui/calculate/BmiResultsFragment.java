@@ -1,6 +1,5 @@
 package pamo.bmicalc.ui.calculate;
 
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,7 +32,7 @@ public class BmiResultsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bmi_results, container, false);
         Log.v("BMI_RESULTS", "BMI_results fragment create fired");
         cViewModel = new ViewModelProvider(getActivity()).get(CalculateViewModel.class);
-        Log.v("Results_TAG", "BMI_Result: " + cViewModel.exportResult());
+        Log.v("Results_TAG", "BMI_Result: " + cViewModel.exportAllData());
         return view;
     }
 
@@ -44,7 +42,7 @@ public class BmiResultsFragment extends Fragment {
         Log.v("BMI_RESULTS", "BMI_results fragment created SUCCESSFULLY");
 
         text_bmiResult = (TextView) view.findViewById(R.id.bmiResults_result_text);
-        updateBmiResult(cViewModel.exportResult());
+        updateBmiResult(cViewModel.getMapValueByKey("bmiResult"));
     }
 
     public void updateBmiResult(int bmiValue){

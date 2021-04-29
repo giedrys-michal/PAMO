@@ -1,7 +1,6 @@
 package pamo.bmicalc.ui.calculate;
 
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.os.Debug;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,8 +51,8 @@ public class CalculateFragment extends Fragment {
             public void onClick(View v) {
                 calculatedResult = calculateBmi();
                 Log.v("CalculateBmi", "Calculated BMI: " + calculatedResult);
-                mViewModel.importResult(calculatedResult);
-                int getImportedResult = mViewModel.exportResult();
+                mViewModel.addDataToMap("bmiResult", calculatedResult);
+                int getImportedResult = mViewModel.getMapValueByKey("bmiResult");
                 Log.v("CalculateBmi", "Imported result: " + getImportedResult);
                 switchFragment(bmiResultsFragment);
             }

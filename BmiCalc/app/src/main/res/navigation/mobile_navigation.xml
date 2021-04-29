@@ -27,4 +27,9 @@
         android:name="pamo.bmicalc.ui.calculate.CalculateFragment"
         android:label="@string/title_bmiCalc"
         tools:layout="@layout/fragment_calculate" />
+    <fragment
+        android:id="@+id/navigation_bmiResults"
+        android:name="pamo.bmicalc.ui.calculate.BmiResultsFragment"
+        android:label="bmi_results_fragment"
+        tools:layout="@layout/fragment_bmi_results" />
 </navigation>

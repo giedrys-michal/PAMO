@@ -29,8 +29,7 @@ public class CalculateFragment extends Fragment {
     private CalculateViewModel mViewModel;
     private EditText inputHeight, inputWeight, inputAge;
     private RadioGroup radioGroup_Gender;
-    private double calculatedBmiResult, calculatedEnergyResult;
-    private String selectedGender, calculatedCategory, recommendedRecipe;
+    private String selectedGender, calculatedCategory, recommendedRecipe, calculatedEnergyResult, calculatedBmiResult;
     private BmiResultsFragment bmiResultsFragment = new BmiResultsFragment();
 
     public static CalculateFragment newInstance() {
@@ -63,10 +62,10 @@ public class CalculateFragment extends Fragment {
                 selectedGender = radio_SelectedGender.getText().toString();
 
                 calculatedEnergyResult = calculateEnergy();
-                mViewModel.addDoubleDataToMap("energyResult", calculatedEnergyResult);
+                mViewModel.addStringDataToMap("energyResult", calculatedEnergyResult);
 
                 calculatedBmiResult = calculateBmi();
-                mViewModel.addDoubleDataToMap("bmiResult", calculatedBmiResult);
+                mViewModel.addStringDataToMap("bmiResult", calculatedBmiResult);
 
                 calculatedCategory = checkCategory();
                 mViewModel.addStringDataToMap("bmiCategory", calculatedCategory);
@@ -78,33 +77,35 @@ public class CalculateFragment extends Fragment {
         });
     }
 
-    public double calculateBmi() {
+    public String calculateBmi() {
         double height = Double.parseDouble(inputHeight.getText().toString());
         double weight = Double.parseDouble(inputWeight.getText().toString());
-        return Math.round(weight / Math.pow(((double) height / 100), 2));
+        return Double.toString(Math.round(weight / Math.pow(((double) height / 100), 2)));
     }
 
     public String checkCategory() {
+        double bmiFromString = Double.parseDouble(calculatedBmiResult);
         String category;
-        if (calculatedBmiResult < 15) {
+
+        if (bmiFromString < 15) {
             category = getResources().getString(R.string.bmiresults_category_underweight3);
             recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_underweight);
-        } else if (15 <= calculatedBmiResult && calculatedBmiResult < 16) {
+        } else if (15 <= bmiFromString && bmiFromString < 16) {
             category = getResources().getString(R.string.bmiresults_category_underweight2);
             recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_underweight);
-        } else if (16 <= calculatedBmiResult && calculatedBmiResult < 18.5) {
+        } else if (16 <= bmiFromString && bmiFromString < 18.5) {
             category = getResources().getString(R.string.bmiresults_category_underweight1);
             recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_underweight);
-        } else if (18.5 <= calculatedBmiResult && calculatedBmiResult < 25) {
+        } else if (18.5 <= bmiFromString && bmiFromString < 25) {
             category = getResources().getString(R.string.bmiresults_category_normal);
             recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_normal);
-        } else if (25 <= calculatedBmiResult && calculatedBmiResult < 30) {
+        } else if (25 <= bmiFromString && bmiFromString < 30) {
             category = getResources().getString(R.string.bmiresults_category_overweight);
             recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_overweight);
-        } else if (30 <= calculatedBmiResult && calculatedBmiResult < 35) {
+        } else if (30 <= bmiFromString && bmiFromString < 35) {
             category = getResources().getString(R.string.bmiresults_category_obese1);
             recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_overweight);
-        } else if (35 <= calculatedBmiResult && calculatedBmiResult < 40) {
+        } else if (35 <= bmiFromString && bmiFromString < 40) {
             category = getResources().getString(R.string.bmiresults_category_obese2);
             recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_overweight);
         } else {
@@ -114,7 +115,7 @@ public class CalculateFragment extends Fragment {
         return category;
     }
 
-    public double calculateEnergy() {
+    public String calculateEnergy() {
         double height = Double.parseDouble(inputHeight.getText().toString());
         double weight = Double.parseDouble(inputWeight.getText().toString());
         double age = Double.parseDouble(inputAge.getText().toString());
@@ -125,13 +126,11 @@ public class CalculateFragment extends Fragment {
         } else {
             result = 655.1 + (9.567 * weight) + (1.85 * height) - (4.68 * age);
         }
-        return Math.round(result);
+        return Double.toString(Math.round(result));
     }
 
     public void switchFragment(Fragment frag) {
         FragmentManager fm = getParentFragmentManager();
         fm.beginTransaction().replace(R.id.nav_host_fragment, frag).commit();
     }
-
-
 }

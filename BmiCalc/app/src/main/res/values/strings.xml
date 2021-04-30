@@ -14,10 +14,13 @@
     <string name="text_bmiFullName">Body Mass Index</string>
 
     <!-- CALCULATE FRAGMENT -->
+    <string name="calculate_title">Please provide values to calculate your BMI and calories requirement:</string>
     <string name="calculate_placeholder_height">Height [cm]</string>
     <string name="calculate_placeholder_weight">Weight [kg]</string>
+    <string name="calculate_placeholder_age">Age [y]</string>
+    <string name="calculate_sex_male">Male</string>
+    <string name="calculate_sex_female">Female</string>
     <string name="calculate_button_submit">Calculate BMI</string>
-    <string name="calculate_title">Please provide values to calculate your BMI</string>
 
     <!-- BMI RESULTS FRAGMENT -->
     <string name="bmiresults_title">BMI Result:</string>

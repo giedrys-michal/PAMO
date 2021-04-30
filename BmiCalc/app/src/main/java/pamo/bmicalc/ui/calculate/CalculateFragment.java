@@ -15,16 +15,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import pamo.bmicalc.R;
 
 public class CalculateFragment extends Fragment {
 
     private CalculateViewModel mViewModel;
-    private static EditText inputHeight;
-    private static EditText inputWeight;
-    private static int calculatedResult;
-    private static BmiResultsFragment bmiResultsFragment = new BmiResultsFragment();
+    private EditText inputHeight, inputWeight, inputAge;
+    private RadioGroup radioGroup_Gender;
+    private int calculatedBmiResult;
+    private double calculatedEnergyResult;
+    private String selectedGender;
+    private BmiResultsFragment bmiResultsFragment = new BmiResultsFragment();
 
     public static CalculateFragment newInstance() {
         return new CalculateFragment();
@@ -45,13 +49,20 @@ public class CalculateFragment extends Fragment {
 
         inputHeight = (EditText) view.findViewById(R.id.calculate_input_height);
         inputWeight = (EditText) view.findViewById(R.id.calculate_input_weight);
+        inputAge = (EditText) view.findViewById(R.id.calculate_input_age);
+        radioGroup_Gender = (RadioGroup) view.findViewById(R.id.calculate_radioGroup);
+
         Button btn_submit = (Button) view.findViewById(R.id.calculate_button_submit);
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculatedResult = calculateBmi();
-                Log.v("CalculateBmi", "Calculated BMI: " + calculatedResult);
-                mViewModel.addDataToMap("bmiResult", calculatedResult);
+                RadioButton radio_SelectedGender = (RadioButton) view.findViewById(radioGroup_Gender.getCheckedRadioButtonId());
+                selectedGender = radio_SelectedGender.getText().toString();
+                calculatedEnergyResult = calculateEnergy();
+
+                calculatedBmiResult = calculateBmi();
+                Log.v("CalculateBmi", "Calculated BMI: " + calculatedBmiResult);
+                mViewModel.addDataToMap("bmiResult", calculatedBmiResult);
                 int getImportedResult = mViewModel.getMapValueByKey("bmiResult");
                 Log.v("CalculateBmi", "Imported result: " + getImportedResult);
                 switchFragment(bmiResultsFragment);
@@ -63,6 +74,18 @@ public class CalculateFragment extends Fragment {
         int height = Integer.parseInt(inputHeight.getText().toString());
         int weight = Integer.parseInt(inputWeight.getText().toString());
         return (int) Math.round(weight / Math.pow(((double) height / 100), 2));
+    }
+
+    public double calculateEnergy() {
+        int height = Integer.parseInt(inputHeight.getText().toString());
+        int weight = Integer.parseInt(inputWeight.getText().toString());
+        int age = Integer.parseInt(inputAge.getText().toString());
+
+        if (selectedGender == "Male"){
+            return 66.47 + (13.7 * weight) + (5.0 * height) - (6.76 * age);
+        } else {
+            return 655.1 + (9.567 * weight) + (1.85 * height) - (4.68 * age);
+        }
     }
 
     public void switchFragment(Fragment frag) {

@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class CalculateViewModel extends ViewModel {
     public MutableLiveData<Map<String, Integer>> dataStore = new MutableLiveData<>();
-    public Map<String, Integer> dataMap = new HashMap<String, Integer>();
+    public Map<String, Integer> dataMap = new HashMap<>();
 
     public CalculateViewModel() {
         dataStore.setValue(dataMap);
@@ -22,7 +22,7 @@ public class CalculateViewModel extends ViewModel {
         return dataStore.getValue();
     }
 
-    public void importAllData(Map<String, Integer> newDataMap){
+    public void importAllData(Map<String, Integer> newDataMap) {
         this.dataStore.setValue(newDataMap);
     }
 

@@ -1,40 +1,55 @@
 package pamo.bmicalc.ui.calculate;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class CalculateViewModel extends ViewModel {
-    public MutableLiveData<Map<String, Double>> dataStore = new MutableLiveData<>();
-    public Map<String, Double> dataMap = new HashMap<>();
+    public MutableLiveData<Map<String, Double>> doubleDataStore = new MutableLiveData<>();
+    public Map<String, Double> doubleDataMap = new HashMap<>();
+
+    public MutableLiveData<Map<String, String>> stringDataStore = new MutableLiveData<>();
+    public Map<String, String> stringDataMap = new HashMap<>();
 
     public CalculateViewModel() {
-        dataStore.setValue(dataMap);
+        doubleDataStore.setValue(doubleDataMap);
+        stringDataStore.setValue(stringDataMap);
     }
 
-    public Map<String, Double> exportAllData(){
-        return dataStore.getValue();
+    public Map<String, Double> exportAllDoubleData(){
+        return doubleDataStore.getValue();
+    }
+    public Map<String, String> exportAllStringData(){
+        return stringDataStore.getValue();
     }
 
-    public void importAllData(Map<String, Double> newDataMap) {
-        this.dataStore.setValue(newDataMap);
+    public void importAllDoubleData(Map<String, Double> newDataMap) {
+        this.doubleDataStore.setValue(newDataMap);
+    }
+    public void importAllStringData(Map<String, String> newDataMap) {
+        this.stringDataStore.setValue(newDataMap);
     }
 
-    public Double getMapValueByKey(String key){
-        return dataStore.getValue().get(key);
+    public Double getDoubleMapValueByKey(String key){
+        return doubleDataStore.getValue().get(key);
+    }
+    public String getStringMapValueByKey(String key){
+        return stringDataStore.getValue().get(key);
     }
 
-    public void addDataToMap(String key, Double value){
-        dataStore.getValue().put(key, value);
+    public void addDoubleDataToMap(String key, Double value){
+        doubleDataStore.getValue().put(key, value);
+    }
+    public void addStringDataToMap(String key, String value){
+        stringDataStore.getValue().put(key, value);
     }
 
-    public void clearAllData(){
-        this.dataStore.getValue().clear();
+    public void clearAllDoubleData(){
+        this.doubleDataStore.getValue().clear();
+    }
+    public void clearAllStringData(){
+        this.stringDataStore.getValue().clear();
     }
 }

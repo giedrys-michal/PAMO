@@ -20,10 +20,20 @@
     <string name="calculate_placeholder_age">Age [y]</string>
     <string name="calculate_sex_male">Male</string>
     <string name="calculate_sex_female">Female</string>
-    <string name="calculate_button_submit">Calculate BMI</string>
+    <string name="calculate_button_submit">Calculate</string>
 
     <!-- BMI RESULTS FRAGMENT -->
     <string name="bmiresults_title">BMI Result:</string>
     <string name="bmiresults_energy_title">Energy needs:</string>
+    <string name="bmiresults_energy_unit">[kcal]</string>
+    <string name="bmiresults_category_underweight3">Very severely underweight</string>
+    <string name="bmiresults_category_underweight2">Severely underweight:</string>
+    <string name="bmiresults_category_underweight1">Underweight</string>
+    <string name="bmiresults_category_normal">Normal (healthy)</string>
+    <string name="bmiresults_category_overweight">Overweight</string>
+    <string name="bmiresults_category_obese1">Moderately obese</string>
+    <string name="bmiresults_category_obese2">Severely obese</string>
+    <string name="bmiresults_category_obese3">Very severely obese</string>
+
 
 </resources>

@@ -18,6 +18,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 import pamo.bmicalc.R;
 
 public class CalculateFragment extends Fragment {
@@ -26,7 +30,7 @@ public class CalculateFragment extends Fragment {
     private EditText inputHeight, inputWeight, inputAge;
     private RadioGroup radioGroup_Gender;
     private double calculatedBmiResult, calculatedEnergyResult;
-    private String selectedGender;
+    private String selectedGender, calculatedCategory;
     private BmiResultsFragment bmiResultsFragment = new BmiResultsFragment();
 
     public static CalculateFragment newInstance() {
@@ -57,12 +61,15 @@ public class CalculateFragment extends Fragment {
             public void onClick(View v) {
                 RadioButton radio_SelectedGender = (RadioButton) view.findViewById(radioGroup_Gender.getCheckedRadioButtonId());
                 selectedGender = radio_SelectedGender.getText().toString();
-                Log.v("CalculateBmi", "Selected gender: " + selectedGender);
+
                 calculatedEnergyResult = calculateEnergy();
-                mViewModel.addDataToMap("energyResult", calculatedEnergyResult);
+                mViewModel.addDoubleDataToMap("energyResult", calculatedEnergyResult);
 
                 calculatedBmiResult = calculateBmi();
-                mViewModel.addDataToMap("bmiResult", calculatedBmiResult);
+                mViewModel.addDoubleDataToMap("bmiResult", calculatedBmiResult);
+
+                calculatedCategory = checkCategory();
+                mViewModel.addStringDataToMap("bmiCategory", calculatedCategory);
 
                 Log.v("CalculateBmi", "Calculated BMI: " + calculatedBmiResult + "; Calculated Energy: " + calculatedEnergyResult);
                 switchFragment(bmiResultsFragment);
@@ -76,6 +83,28 @@ public class CalculateFragment extends Fragment {
         return Math.round(weight / Math.pow(((double) height / 100), 2));
     }
 
+    public String checkCategory() {
+        String category;
+        if (calculatedBmiResult < 15) {
+            category = getResources().getString(R.string.bmiresults_category_underweight3);
+        } else if (15 <= calculatedBmiResult && calculatedBmiResult < 16) {
+            category = getResources().getString(R.string.bmiresults_category_underweight2);
+        } else if (16 <= calculatedBmiResult && calculatedBmiResult < 18.5) {
+            category = getResources().getString(R.string.bmiresults_category_underweight1);
+        } else if (18.5 <= calculatedBmiResult && calculatedBmiResult < 25) {
+            category = getResources().getString(R.string.bmiresults_category_normal);
+        } else if (25 <= calculatedBmiResult && calculatedBmiResult < 30) {
+            category = getResources().getString(R.string.bmiresults_category_overweight);
+        } else if (30 <= calculatedBmiResult && calculatedBmiResult < 35) {
+            category = getResources().getString(R.string.bmiresults_category_obese1);
+        } else if (35 <= calculatedBmiResult && calculatedBmiResult < 40) {
+            category = getResources().getString(R.string.bmiresults_category_obese2);
+        } else {
+            category = getResources().getString(R.string.bmiresults_category_obese3);
+        }
+        return category;
+    }
+
     public double calculateEnergy() {
         double height = Double.parseDouble(inputHeight.getText().toString());
         double weight = Double.parseDouble(inputWeight.getText().toString());
@@ -87,13 +116,10 @@ public class CalculateFragment extends Fragment {
         } else {
             result = 655.1 + (9.567 * weight) + (1.85 * height) - (4.68 * age);
         }
-
-        Log.v("CalculateBmi", "Selected gender: " + result);
-        return result;
+        return Math.round(result);
     }
 
     public void switchFragment(Fragment frag) {
-        Log.v("CalculateBMI", "Inside fragment switch");
         FragmentManager fm = getParentFragmentManager();
         fm.beginTransaction().replace(R.id.nav_host_fragment, frag).commit();
     }

@@ -19,7 +19,7 @@ import pamo.bmicalc.R;
 public class BmiResultsFragment extends Fragment {
 
     private CalculateViewModel cViewModel;
-    private TextView tv_bmiResult, tv_energyResult, tv_category;
+    private TextView tv_bmiResult, tv_energyResult, tv_category, tv_recipe;
 
     public static BmiResultsFragment newInstance() {
         return new BmiResultsFragment();
@@ -40,14 +40,21 @@ public class BmiResultsFragment extends Fragment {
         tv_bmiResult = (TextView) view.findViewById(R.id.bmiResults_bmi_text);
         tv_energyResult = (TextView) view.findViewById(R.id.bmiResults_energy_text);
         tv_category = (TextView) view.findViewById(R.id.bmiResults_category_text);
-        updateResults(cViewModel.getDoubleMapValueByKey("bmiResult"), cViewModel.getDoubleMapValueByKey("energyResult"), cViewModel.getStringMapValueByKey("bmiCategory"));
+        tv_recipe = (TextView) view.findViewById(R.id.bmiResults_recipe_text);
+        updateResults(
+                cViewModel.getDoubleMapValueByKey("bmiResult"),
+                cViewModel.getDoubleMapValueByKey("energyResult"),
+                cViewModel.getStringMapValueByKey("bmiCategory"),
+                cViewModel.getStringMapValueByKey("bmiRecipe")
+        );
     }
 
     @SuppressLint("SetTextI18n")
-    public void updateResults(double bmiValue, double energyValue, String bmiCategory){
+    public void updateResults(double bmiValue, double energyValue, String bmiCategory, String bmiRecipe){
         tv_bmiResult.setText(Double.toString(bmiValue));
         tv_category.setText(bmiCategory);
         tv_energyResult.setText(Double.toString(energyValue));
+        tv_recipe.setText(bmiRecipe);
     }
 
 }

@@ -8,15 +8,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.6"
+        android:layout_height="270dp"
+        android:layout_weight="1"
         android:baselineAligned="false"
         android:orientation="horizontal"
         android:paddingTop="24sp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -47,7 +47,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -81,7 +81,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.4"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="16sp">
+
+        <TextView
+            android:id="@+id/bmiResults_recipe_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10sp"
+            android:text="@string/bmiresults_recipe_title"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/bmiResults_recipe_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30sp"
+            android:paddingRight="30sp" />
+    </LinearLayout>
 
 </LinearLayout>

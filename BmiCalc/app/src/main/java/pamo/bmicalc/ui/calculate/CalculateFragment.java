@@ -30,7 +30,7 @@ public class CalculateFragment extends Fragment {
     private EditText inputHeight, inputWeight, inputAge;
     private RadioGroup radioGroup_Gender;
     private double calculatedBmiResult, calculatedEnergyResult;
-    private String selectedGender, calculatedCategory;
+    private String selectedGender, calculatedCategory, recommendedRecipe;
     private BmiResultsFragment bmiResultsFragment = new BmiResultsFragment();
 
     public static CalculateFragment newInstance() {
@@ -70,6 +70,7 @@ public class CalculateFragment extends Fragment {
 
                 calculatedCategory = checkCategory();
                 mViewModel.addStringDataToMap("bmiCategory", calculatedCategory);
+                mViewModel.addStringDataToMap("bmiRecipe", recommendedRecipe);
 
                 Log.v("CalculateBmi", "Calculated BMI: " + calculatedBmiResult + "; Calculated Energy: " + calculatedEnergyResult);
                 switchFragment(bmiResultsFragment);
@@ -87,20 +88,28 @@ public class CalculateFragment extends Fragment {
         String category;
         if (calculatedBmiResult < 15) {
             category = getResources().getString(R.string.bmiresults_category_underweight3);
+            recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_underweight);
         } else if (15 <= calculatedBmiResult && calculatedBmiResult < 16) {
             category = getResources().getString(R.string.bmiresults_category_underweight2);
+            recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_underweight);
         } else if (16 <= calculatedBmiResult && calculatedBmiResult < 18.5) {
             category = getResources().getString(R.string.bmiresults_category_underweight1);
+            recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_underweight);
         } else if (18.5 <= calculatedBmiResult && calculatedBmiResult < 25) {
             category = getResources().getString(R.string.bmiresults_category_normal);
+            recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_normal);
         } else if (25 <= calculatedBmiResult && calculatedBmiResult < 30) {
             category = getResources().getString(R.string.bmiresults_category_overweight);
+            recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_overweight);
         } else if (30 <= calculatedBmiResult && calculatedBmiResult < 35) {
             category = getResources().getString(R.string.bmiresults_category_obese1);
+            recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_overweight);
         } else if (35 <= calculatedBmiResult && calculatedBmiResult < 40) {
             category = getResources().getString(R.string.bmiresults_category_obese2);
+            recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_overweight);
         } else {
             category = getResources().getString(R.string.bmiresults_category_obese3);
+            recommendedRecipe = getResources().getString(R.string.bmiresults_recipe_overweight);
         }
         return category;
     }

@@ -53,7 +53,7 @@
         android:id="@+id/calculate_text_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:text="@string/calculate_title"
         android:textAlignment="center"
         android:textSize="30sp"

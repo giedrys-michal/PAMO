@@ -2,6 +2,7 @@ package pamo.bmicalc.ui.calculate;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,9 +19,8 @@ import pamo.bmicalc.R;
 
 public class BmiResultsFragment extends Fragment {
 
-    private BmiResultsViewModel mViewModel;
     private CalculateViewModel cViewModel;
-    private TextView text_bmiResult;
+    private TextView text_bmiResult, text_energyResult;
 
     public static BmiResultsFragment newInstance() {
         return new BmiResultsFragment();
@@ -41,12 +41,15 @@ public class BmiResultsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.v("BMI_RESULTS", "BMI_results fragment created SUCCESSFULLY");
 
-        text_bmiResult = (TextView) view.findViewById(R.id.bmiResults_result_text);
-        updateBmiResult(cViewModel.getMapValueByKey("bmiResult"));
+        text_bmiResult = (TextView) view.findViewById(R.id.bmiResults_bmi_text);
+        text_energyResult = (TextView) view.findViewById(R.id.bmiResults_energy_text);
+        updateResults(cViewModel.getMapValueByKey("bmiResult"), cViewModel.getMapValueByKey("energyResult"));
     }
 
-    public void updateBmiResult(int bmiValue){
-        text_bmiResult.setText(Integer.toString(bmiValue));
+    @SuppressLint("SetTextI18n")
+    public void updateResults(double bmiValue, double energyValue){
+        text_bmiResult.setText(Double.toString(bmiValue));
+        text_energyResult.setText(Double.toString(energyValue) + " kcal");
     }
 
 }

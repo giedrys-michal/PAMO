@@ -24,5 +24,6 @@
 
     <!-- BMI RESULTS FRAGMENT -->
     <string name="bmiresults_title">BMI Result:</string>
+    <string name="bmiresults_energy_title">Energy needs:</string>
 
 </resources>

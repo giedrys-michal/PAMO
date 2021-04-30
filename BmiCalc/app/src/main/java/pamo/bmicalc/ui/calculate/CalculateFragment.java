@@ -25,8 +25,7 @@ public class CalculateFragment extends Fragment {
     private CalculateViewModel mViewModel;
     private EditText inputHeight, inputWeight, inputAge;
     private RadioGroup radioGroup_Gender;
-    private int calculatedBmiResult;
-    private double calculatedEnergyResult;
+    private double calculatedBmiResult, calculatedEnergyResult;
     private String selectedGender;
     private BmiResultsFragment bmiResultsFragment = new BmiResultsFragment();
 
@@ -58,34 +57,39 @@ public class CalculateFragment extends Fragment {
             public void onClick(View v) {
                 RadioButton radio_SelectedGender = (RadioButton) view.findViewById(radioGroup_Gender.getCheckedRadioButtonId());
                 selectedGender = radio_SelectedGender.getText().toString();
+                Log.v("CalculateBmi", "Selected gender: " + selectedGender);
                 calculatedEnergyResult = calculateEnergy();
+                mViewModel.addDataToMap("energyResult", calculatedEnergyResult);
 
                 calculatedBmiResult = calculateBmi();
-                Log.v("CalculateBmi", "Calculated BMI: " + calculatedBmiResult);
                 mViewModel.addDataToMap("bmiResult", calculatedBmiResult);
-                int getImportedResult = mViewModel.getMapValueByKey("bmiResult");
-                Log.v("CalculateBmi", "Imported result: " + getImportedResult);
+
+                Log.v("CalculateBmi", "Calculated BMI: " + calculatedBmiResult + "; Calculated Energy: " + calculatedEnergyResult);
                 switchFragment(bmiResultsFragment);
             }
         });
     }
 
-    public int calculateBmi() {
-        int height = Integer.parseInt(inputHeight.getText().toString());
-        int weight = Integer.parseInt(inputWeight.getText().toString());
-        return (int) Math.round(weight / Math.pow(((double) height / 100), 2));
+    public double calculateBmi() {
+        double height = Double.parseDouble(inputHeight.getText().toString());
+        double weight = Double.parseDouble(inputWeight.getText().toString());
+        return Math.round(weight / Math.pow(((double) height / 100), 2));
     }
 
     public double calculateEnergy() {
-        int height = Integer.parseInt(inputHeight.getText().toString());
-        int weight = Integer.parseInt(inputWeight.getText().toString());
-        int age = Integer.parseInt(inputAge.getText().toString());
+        double height = Double.parseDouble(inputHeight.getText().toString());
+        double weight = Double.parseDouble(inputWeight.getText().toString());
+        double age = Double.parseDouble(inputAge.getText().toString());
+        double result;
 
         if (selectedGender == "Male"){
-            return 66.47 + (13.7 * weight) + (5.0 * height) - (6.76 * age);
+            result = 66.47 + (13.7 * weight) + (5.0 * height) - (6.76 * age);
         } else {
-            return 655.1 + (9.567 * weight) + (1.85 * height) - (4.68 * age);
+            result = 655.1 + (9.567 * weight) + (1.85 * height) - (4.68 * age);
         }
+
+        Log.v("CalculateBmi", "Selected gender: " + result);
+        return result;
     }
 
     public void switchFragment(Fragment frag) {

@@ -1,6 +1,7 @@
 package pamo.bmicalc.ui.calculate;
 
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -130,7 +131,7 @@ public class CalculateFragment extends Fragment {
     }
 
     public void switchFragment(Fragment frag) {
-        FragmentManager fm = getParentFragmentManager();
-        fm.beginTransaction().replace(R.id.nav_host_fragment, frag).commit();
+        FragmentTransaction ftx = getParentFragmentManager().beginTransaction();
+        ftx.replace(R.id.nav_host_fragment, frag).addToBackStack("CalculateFragment").commit();
     }
 }

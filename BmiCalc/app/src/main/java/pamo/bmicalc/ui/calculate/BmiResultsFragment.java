@@ -54,7 +54,7 @@ public class BmiResultsFragment extends Fragment {
     }
 
     @SuppressLint("SetTextI18n")
-    public void updateResults(String bmiValue, String energyValue, String bmiCategory, String bmiRecipe){
+    public void updateResults(String bmiValue, String energyValue, String bmiCategory, String bmiRecipe) {
         tv_bmiResult.setText(bmiValue);
         tv_category.setText(bmiCategory);
         tv_energyResult.setText(energyValue);

@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import pamo.bmicalc.R;
 
-public class DashboardFragment extends Fragment {
+public class QuizFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private QuizViewModel quizViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        quizViewModel =
+                new ViewModelProvider(this).get(QuizViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_quiz, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        quizViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

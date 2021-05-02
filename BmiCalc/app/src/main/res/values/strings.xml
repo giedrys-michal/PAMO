@@ -1,12 +1,9 @@
 <resources>
     <string name="app_name">BmiCalc</string>
 
-    <string name="edit_weight">Podaj wagę [kg]</string>
-    <string name="edit_height">Podaj wzrost [cm]</string>
-
     <!-- NAV STRINGS -->
     <string name="title_bmiCalc">Calculate</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_quiz">Quiz</string>
     <string name="title_notifications">Notifications</string>
 
     <!-- HOME SCREEN ACTIVITY -->
@@ -38,7 +35,5 @@
     <string name="bmiresults_recipe_underweight">- 8 eggs\n- 9 oz. bacon, in slices\n- cherry tomatoes (optional)\n- fresh thyme (optional)\n\nFry the bacon in a pan on medium high heat until crispy. Put aside on a plate. Leave the rendered fat in the pan.\nUse the same pan to fry the eggs. Place it over medium heat and crack your eggs into the bacon grease. You can also crack them into a measuring cup and carefully pour into the pan to avoid splattering of hot grease.\nCook the eggs any way you like them. For sunny side up — leave the eggs to fry on one side and cover the pan with a lid to make sure they get cooked on top. For eggs cooked over easy — flip the eggs over after a few minutes and cook for another minute. Cut the cherry tomatoes in half and fry them at the same time.\nSalt and pepper to taste.</string>
     <string name="bmiresults_recipe_normal">- mobile phone\n- account with money\n\nGet your phone, call nearest Da Grasso, order Margherita and you are good.</string>
     <string name="bmiresults_recipe_overweight">- 5 eggs\n- 9 oz. (1¼ cups) cottage cheese\n- 1 pinch salt\n- 1 tbsp ground psyllium husk powder butter or coconut oil, for frying\n\nMix eggs, cottage cheese, salt and psyllium husk powder with a hand blender into a smooth batter. Let sit for 10 minutes.\nHeat a couple of tablespoons butter or olive oil in a large frying pan on medium heat. Put a few dollops of the cottage cheese batter, maximum 2–3 inches in diameter, in the pan and fry the pancakes for a few minutes on each side.\nServe with a generous amount of cream cheese and a few red onion slices. Top with sea salt and freshly ground black pepper. Drizzle the remaining olive oil on top.</string>
-
-
 
 </resources>

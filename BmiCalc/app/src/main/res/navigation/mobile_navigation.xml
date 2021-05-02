@@ -8,24 +8,24 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="pamo.bmicalc.ui.home.HomeFragment"
-        android:label="@string/title_bmiCalc"
+        android:label="@string/bmiCalc_title"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_quiz"
-        android:name="pamo.bmicalc.ui.dashboard.QuizFragment"
-        android:label="@string/title_quiz"
+        android:name="pamo.bmicalc.ui.quiz.QuizFragment"
+        android:label="@string/quiz_title"
         tools:layout="@layout/fragment_quiz" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="pamo.bmicalc.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/notifications_title"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_calculate"
         android:name="pamo.bmicalc.ui.calculate.CalculateFragment"
-        android:label="@string/title_bmiCalc"
+        android:label="@string/bmiCalc_title"
         tools:layout="@layout/fragment_calculate" />
     <fragment
         android:id="@+id/navigation_bmiResults"

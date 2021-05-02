@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <question>
+        <question_id>1</question_id>
+        <question_text>Color of the grass:</question_text>
+        <answers>
+            <answer>
+                <answer_id>1</answer_id>
+                <answer_text>Green</answer_text>
+            </answer>
+            <answer>
+                <answer_id>2</answer_id>
+                <answer_text>Blue</answer_text>
+            </answer>
+            <answer>
+                <answer_id>3</answer_id>
+                <answer_text>Red</answer_text>
+            </answer>
+            <answer>
+                <answer_id>4</answer_id>
+                <answer_text>Black</answer_text>
+            </answer>
+        </answers>
+    </question>
+</quiz>

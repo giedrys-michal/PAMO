@@ -42,13 +42,14 @@ public class CalculateFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calculate, container, false);
         mViewModel = new ViewModelProvider(getActivity()).get(CalculateViewModel.class);
-
+        Log.v("CalculateFragment", "Entered -> onCreateView");
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+        Log.v("CalculateFragment", "Entered -> onViewCreated");
 
         inputHeight = (EditText) view.findViewById(R.id.calculate_input_height);
         inputWeight = (EditText) view.findViewById(R.id.calculate_input_weight);

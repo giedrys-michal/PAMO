@@ -11,7 +11,7 @@
         android:theme="@style/Theme.BmiCalc">
         <activity
             android:name=".HomeScreen"
-            android:label="@string/text_bmiAbbr">
+            android:label="@string/bmiCalc_abbr_text">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

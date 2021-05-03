@@ -39,5 +39,6 @@
     <!-- QUIZ FRAGMENT -->
     <string name="quiz_btn_next">Next</string>
     <string name="quiz_btn_retake">Retake</string>
+    <string name="quiz_btn_finish">Finish</string>
 
 </resources>

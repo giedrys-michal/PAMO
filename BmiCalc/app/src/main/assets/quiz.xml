@@ -7,18 +7,48 @@
             <answer>
                 <answer_id>1</answer_id>
                 <answer_text>Green</answer_text>
+                <answer_valid>true</answer_valid>
             </answer>
             <answer>
                 <answer_id>2</answer_id>
                 <answer_text>Blue</answer_text>
+                <answer_valid>false</answer_valid>
             </answer>
             <answer>
                 <answer_id>3</answer_id>
                 <answer_text>Red</answer_text>
+                <answer_valid>false</answer_valid>
             </answer>
             <answer>
                 <answer_id>4</answer_id>
                 <answer_text>Black</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+        </answers>
+    </question>
+    <question>
+        <question_id>2</question_id>
+        <question_text>Color of the sky:</question_text>
+        <answers>
+            <answer>
+                <answer_id>1</answer_id>
+                <answer_text>Green</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>2</answer_id>
+                <answer_text>Blue</answer_text>
+                <answer_valid>true</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>3</answer_id>
+                <answer_text>Red</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>4</answer_id>
+                <answer_text>Black</answer_text>
+                <answer_valid>false</answer_valid>
             </answer>
         </answers>
     </question>

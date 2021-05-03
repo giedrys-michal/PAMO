@@ -20,7 +20,7 @@ public class HomeScreen extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_calculate, R.id.navigation_quiz, R.id.navigation_notifications)
+                R.id.navigation_calculate, R.id.navigation_quiz, R.id.navigation_chart)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

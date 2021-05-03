@@ -11,8 +11,8 @@
         android:title="@string/quiz_title" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/notifications_title" />
+        android:id="@+id/navigation_chart"
+        android:icon="@drawable/ic_chart"
+        android:title="@string/chart_title" />
 
 </menu>

@@ -35,7 +35,6 @@ public class QuizFragment extends Fragment {
     private int currentQuestion = 1;
 
     private TextView tv_question_text;
-    private RadioButton rb_answer_1, rb_answer_2, rb_answer_3, rb_answer_4;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -52,8 +51,9 @@ public class QuizFragment extends Fragment {
         Log.v("QuizFragment", "Entered -> onViewCreated");
         questionCount = qqm.getQuestions().size();
         Log.v("QuizFragment", "onViewCreated -> questionCount: " + questionCount);
-        renderQuestion(view, qqm, 1);
+        renderQuestion(view, qqm, currentQuestion);
         nextQuestionHandler(view);
+        retakeQuizHandler(view);
     }
 
     public void initialiseParser() {
@@ -94,11 +94,17 @@ public class QuizFragment extends Fragment {
 
             radioButtons.get(i).setText(qa.getAnswer_text());
         }
+        setQuestionCount(view);
+    }
+
+    public void setQuestionCount(View view) {
+        TextView tv = (TextView) view.findViewById(R.id.quiz_questionCount_text);
+        tv.setText(currentQuestion + " / " + questionCount);
     }
 
     public void increaseResultIfCorrect(View view) {
         Log.v("QuizFragment", "Entered -> increaseResultIfCorrect");
-        RadioGroup rg = view.findViewById(R.id.quiz_radioGroup_answers);
+        RadioGroup rg = (RadioGroup) view.findViewById(R.id.quiz_radioGroup_answers);
         int selection = rg.getCheckedRadioButtonId();
         RadioButton selectedAnswer = (RadioButton) view.findViewById(selection);
         if (selectedAnswer.getText() == validAnswerText) {
@@ -109,25 +115,55 @@ public class QuizFragment extends Fragment {
 
     public void nextQuestionHandler(View view) {
         Log.v("QuizFragment", "Entered -> nextQuestionHandler");
-        Button next = (Button) view.findViewById(R.id.quiz_btn_next);
+        Button btn_next = (Button) view.findViewById(R.id.quiz_btn_next);
         if (currentQuestion == questionCount) {
-            next.setText(R.string.quiz_btn_finish);
-            // Display results
+            btn_next.setText(R.string.quiz_btn_finish);
         }
-        next.setOnClickListener(new View.OnClickListener() {
+        btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                increaseResultIfCorrect(view);
                 if (currentQuestion < questionCount) {
                     currentQuestion++;
                     Log.v("QuizFragment", "rendering question: " + currentQuestion);
-                    increaseResultIfCorrect(view);
                     renderQuestion(view, qqm, currentQuestion);
                     if (currentQuestion == questionCount) {
-                        next.setText(R.string.quiz_btn_finish);
+                        btn_next.setText(R.string.quiz_btn_finish);
                     }
                 } else {
-                    // Display results
+                    displayResults(view);
                 }
+            }
+        });
+    }
+
+    public void displayResults(View view) {
+        TextView tv_displayResult = (TextView) view.findViewById(R.id.quiz_question_text);
+        RadioGroup rg_answers = (RadioGroup) view.findViewById(R.id.quiz_radioGroup_answers);
+        Button btn_finnish = (Button) view.findViewById(R.id.quiz_btn_next);
+
+        rg_answers.setVisibility(View.INVISIBLE);
+        tv_displayResult.setText("Result: " + quizResult + " / " + questionCount);
+
+        btn_finnish.setEnabled(false);
+    }
+
+    public void retakeQuizHandler(View view) {
+        Log.v("QuizFragment", "Entered -> retakeQuizHandler");
+        Button btn_retake = (Button) view.findViewById(R.id.quiz_btn_retake);
+        Button btn_next = (Button) view.findViewById(R.id.quiz_btn_next);
+        RadioGroup rg_answers = (RadioGroup) view.findViewById(R.id.quiz_radioGroup_answers);
+
+        btn_retake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_next.setText(R.string.quiz_btn_next);
+                btn_next.setEnabled(true);
+                rg_answers.setVisibility(View.VISIBLE);
+                quizResult = 0;
+                currentQuestion = 1;
+                validAnswerText = "";
+                renderQuestion(view, qqm, currentQuestion);
             }
         });
     }

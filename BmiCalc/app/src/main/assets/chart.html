@@ -18,7 +18,12 @@
 
         var options = {
           title : 'Recent COVID-19 data',
-          vAxis: {format: 'long'},
+          vAxis: {
+            format: 'long',
+            gridlines: {
+              count: 10
+            }
+          },
           hAxis: {title: 'Country'},
           seriesType: 'bars',
           legend: {

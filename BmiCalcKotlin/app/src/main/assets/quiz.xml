@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+    <question>
+        <question_id>1</question_id>
+        <question_text>What type of disease is COVID-19?</question_text>
+        <answers>
+            <answer>
+                <answer_id>1</answer_id>
+                <answer_text>Virus</answer_text>
+                <answer_valid>true</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>2</answer_id>
+                <answer_text>Bacteria</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>3</answer_id>
+                <answer_text>Fungal infection</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>4</answer_id>
+                <answer_text>Mental illness</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+        </answers>
+    </question>
+    <question>
+        <question_id>2</question_id>
+        <question_text>COVID-19 place of origin is?</question_text>
+        <answers>
+            <answer>
+                <answer_id>1</answer_id>
+                <answer_text>Wuhan, China</answer_text>
+                <answer_valid>true</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>2</answer_id>
+                <answer_text>Chrząszczyżewoszyce, powiat Łękołody</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>3</answer_id>
+                <answer_text>www.thepiratebay.org, Internet</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>4</answer_id>
+                <answer_text>AREA 51, USA</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+        </answers>
+    </question>
+    <question>
+        <question_id>3</question_id>
+        <question_text>COVID-19 abbreviation stands for?</question_text>
+        <answers>
+            <answer>
+                <answer_id>1</answer_id>
+                <answer_text>COronaVIrusDisease year 2019</answer_text>
+                <answer_valid>true</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>2</answer_id>
+                <answer_text>COlosalVIrtualDestruction part 19</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>3</answer_id>
+                <answer_text>Cow ID nr 19</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>4</answer_id>
+                <answer_text>COsmicVentIlationDisorder planet 19</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+        </answers>
+    </question>
+    <question>
+        <question_id>4</question_id>
+        <question_text>Which EU country first closed their borders during the pandemic?</question_text>
+        <answers>
+            <answer>
+                <answer_id>1</answer_id>
+                <answer_text>Italy</answer_text>
+                <answer_valid>true</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>2</answer_id>
+                <answer_text>Germany</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>3</answer_id>
+                <answer_text>Iceland</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>4</answer_id>
+                <answer_text>Sealand</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+        </answers>
+    </question>
+    <question>
+        <question_id>5</question_id>
+        <question_text>How does the COVID disease spread?</question_text>
+        <answers>
+            <answer>
+                <answer_id>1</answer_id>
+                <answer_text>Liquid droplets</answer_text>
+                <answer_valid>true</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>2</answer_id>
+                <answer_text>Carried in trousers pockets</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>3</answer_id>
+                <answer_text>Transported by heavy trucks</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>4</answer_id>
+                <answer_text>Carried by wind</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+        </answers>
+    </question>
+    <question>
+        <question_id>6</question_id>
+        <question_text>Which company delivered first effective vaccine?</question_text>
+        <answers>
+            <answer>
+                <answer_id>1</answer_id>
+                <answer_text>Pfizer</answer_text>
+                <answer_valid>true</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>2</answer_id>
+                <answer_text>AstraZeneca</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>3</answer_id>
+                <answer_text>McDonald&apos;s</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+            <answer>
+                <answer_id>4</answer_id>
+                <answer_text>Johnson&amp;Johnson</answer_text>
+                <answer_valid>false</answer_valid>
+            </answer>
+        </answers>
+    </question>
+</quiz>

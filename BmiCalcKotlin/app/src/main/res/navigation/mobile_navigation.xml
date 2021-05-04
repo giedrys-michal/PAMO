@@ -12,14 +12,21 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="pamo.bmicalc_kotlin.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_calculate"
+        android:name="pamo.bmicalc_kotlin.ui.calculate.CalculateFragment"
+        android:label="@string/calculate_title"
+        tools:layout="@layout/fragment_calculate" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="pamo.bmicalc_kotlin.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_chart"
+        android:name="pamo.bmicalc_kotlin.ui.chart.ChartFragment"
+        android:label="@string/chart_title"
+        tools:layout="@layout/fragment_chart" />
+
+    <fragment
+        android:id="@+id/navigation_quiz"
+        android:name="pamo.bmicalc_kotlin.ui.quiz.QuizFragment"
+        android:label="@string/quiz_title"
+        tools:layout="@layout/fragment_quiz" />
+
 </navigation>

@@ -1,4 +1,4 @@
-package pamo.bmicalc_kotlin.ui.notifications
+package pamo.bmicalc_kotlin.ui.calculate
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import pamo.bmicalc_kotlin.R
 
-class NotificationsFragment : Fragment() {
+class CalculateFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var calculateViewModel: CalculateViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-                ViewModelProvider(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        calculateViewModel =
+                ViewModelProvider(this).get(CalculateViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_calculate, container, false)
+        val textView: TextView = root.findViewById(R.id.text_dashboard)
+        calculateViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

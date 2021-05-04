@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="pamo.bmicalc.ui.home.HomeFragment"
+        android:label="@string/bmiCalc_title"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_quiz"
+        android:name="pamo.bmicalc.ui.quiz.QuizFragment"
+        android:label="@string/quiz_title"
+        tools:layout="@layout/fragment_quiz" />
+
+    <fragment
+        android:id="@+id/navigation_chart"
+        android:name="pamo.bmicalc.ui.chart.ChartFragment"
+        android:label="@string/chart_title"
+        tools:layout="@layout/fragment_chart" />
+    <fragment
+        android:id="@+id/navigation_calculate"
+        android:name="pamo.bmicalc.ui.calculate.CalculateFragment"
+        android:label="@string/bmiCalc_title"
+        tools:layout="@layout/fragment_calculate" />
+    <fragment
+        android:id="@+id/navigation_bmiResults"
+        android:name="pamo.bmicalc.ui.calculate.BmiResultsFragment"
+        android:label="bmi_results_fragment"
+        tools:layout="@layout/fragment_bmi_results" />
+</navigation>

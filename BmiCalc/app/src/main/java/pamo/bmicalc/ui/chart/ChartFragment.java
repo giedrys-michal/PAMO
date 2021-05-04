@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,16 +22,15 @@ public class ChartFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        chartViewModel =
-                new ViewModelProvider(this).get(ChartViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_chart, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        chartViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+        chartViewModel = new ViewModelProvider(this).get(ChartViewModel.class);
+        View view = inflater.inflate(R.layout.fragment_chart, container, false);
+
+        // String url = "https://www.worldometers.info/coronavirus/";
+        WebView wv = view.findViewById(R.id.chart_webView_container);
+        wv.getSettings().setJavaScriptEnabled(true);
+        wv.setWebViewClient(new WebViewClient());
+        wv.loadUrl("file:///android_asset/chart.html");
+
+        return view;
     }
 }

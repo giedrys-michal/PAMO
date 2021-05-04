@@ -41,4 +41,7 @@
     <string name="quiz_btn_retake">Retake</string>
     <string name="quiz_btn_finish">Finish</string>
 
+    <!-- CHART FRAGMENT -->
+    <string name="chart_title_text">COVID-19 Chart</string>
+
 </resources>

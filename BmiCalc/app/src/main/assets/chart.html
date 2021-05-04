@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Total cases', 'Total deaths', 'Total recovered', 'Active cases'],
+          ['USA', 33230992, 591514, 25908684, 6730794],
+          ['India', 20282833, 222408, 16613292, 3447133],
+          ['Brazil', 14791434, 408829, 13336476, 1046129],
+          ['UK', 4421850, 127539, 4231750, 62561],
+          ['Poland', 2808052, 68133, 2536931, 202988]
+        ]);
+
+        var options = {
+          title : 'Recent COVID-19 data',
+          vAxis: {format: 'long'},
+          hAxis: {title: 'Country'},
+          seriesType: 'bars',
+          legend: {
+            alignment: 'center',
+            position: 'bottom',
+            textStyle: {
+              fontSize: 6
+            }
+          }
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 100vw; height: 50vw;"></div>
+  </body>
+</html>

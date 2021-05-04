@@ -19,7 +19,7 @@ Do zrobienia (10.04.2021):
 
 Zacząć zbierać zespół
 - Założyć repo do projektu (dogadać się z kimś)
-- Wybrać narzędzie do śledzenia postępu prac w projekcie
+- Wybrać narzędzie do śledzenia postępu prac w projekcie  
 Dominik Stec  
 Magdalena Czubek  
 tablica miro:  

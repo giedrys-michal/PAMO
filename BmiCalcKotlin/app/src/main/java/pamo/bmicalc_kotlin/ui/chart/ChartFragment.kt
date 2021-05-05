@@ -22,10 +22,6 @@ class ChartFragment : Fragment() {
         chartViewModel =
                 ViewModelProvider(this).get(ChartViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_chart, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        chartViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
         return root
     }
 }

@@ -14,19 +14,11 @@ class QuizFragment : Fragment() {
         fun newInstance() = QuizFragment()
     }
 
-    private lateinit var viewModel: QuizViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_quiz, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(QuizViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

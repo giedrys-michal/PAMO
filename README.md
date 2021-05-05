@@ -1,6 +1,15 @@
 # PAMO
 Repo for PAMO subject
 
+### Repo contents:
+ - **BmiCalc** - project in java:
+    - Home screen
+    - BMI calculation (with calories requirement - *Benedict-Harris* formula)
+    - COVID-19 Quiz (easy scalable XML format)
+    - COVID-19 data chart (Google Charts via WebView)
+ - **BmiCalcKotlin** - project in Kotlin:
+    - above functionalities with minor improvements
+
 ## Zjazd 1
 Przygotować kalkulator BMI  
 Stringi należy pobierać z zasobów  

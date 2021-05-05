@@ -1,5 +1,6 @@
 package pamo.bmicalc.ui.quiz;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,15 +35,12 @@ public class QuizFragment extends Fragment {
     private int questionCount;
     private int currentQuestion = 1;
 
-    private TextView tv_question_text;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Log.v("QuizFragment", "Entered -> onCreateView");
         quizViewModel = new ViewModelProvider(this).get(QuizViewModel.class);
         initialiseParser();
-        View root = inflater.inflate(R.layout.fragment_quiz, container, false);
-        return root;
+        return inflater.inflate(R.layout.fragment_quiz, container, false);
     }
 
     @Override
@@ -59,7 +57,7 @@ public class QuizFragment extends Fragment {
     public void initialiseParser() {
         Log.v("QuizFragment", "Entered -> initialiseParser");
         try {
-            qqm = quizViewModel.runParser(this.getContext().getAssets().open("quiz.xml"));
+            qqm = quizViewModel.runParser(this.requireContext().getAssets().open("quiz.xml"));
         } catch (IOException ex) {
             System.out.println("Unable to read the file \"quiz.xml\", details: " + ex.getMessage());
             Log.v("QuizFragment", "Cannot open the file \"quiz.xml\", details: " + ex.getMessage());
@@ -72,16 +70,16 @@ public class QuizFragment extends Fragment {
     public void renderQuestion(View view, QuizQuestionsModel qqm, int questionId) {
         Log.v("QuizFragment", "Entered -> renderQuestion");
         QuizQuestion q = qqm.getQuestionById(questionId);
-        tv_question_text = (TextView) view.findViewById(R.id.quiz_question_text);
+        TextView tv_question_text = view.findViewById(R.id.quiz_question_text);
         tv_question_text.setText(q.getQuestionText());
 
         List<RadioButton> radioButtons = new ArrayList<>();
-        radioButtons.add((RadioButton) view.findViewById(R.id.quiz_radio_1));
-        radioButtons.add((RadioButton) view.findViewById(R.id.quiz_radio_2));
-        radioButtons.add((RadioButton) view.findViewById(R.id.quiz_radio_3));
-        radioButtons.add((RadioButton) view.findViewById(R.id.quiz_radio_4));
+        radioButtons.add(view.findViewById(R.id.quiz_radio_1));
+        radioButtons.add(view.findViewById(R.id.quiz_radio_2));
+        radioButtons.add(view.findViewById(R.id.quiz_radio_3));
+        radioButtons.add(view.findViewById(R.id.quiz_radio_4));
 
-        List<QuizAnswer> answerSet = new ArrayList<>();
+        List<QuizAnswer> answerSet;
         answerSet = q.getAnswers();
         Collections.shuffle(answerSet);
 
@@ -97,16 +95,17 @@ public class QuizFragment extends Fragment {
         setQuestionCount(view);
     }
 
+    @SuppressLint("SetTextI18n")
     public void setQuestionCount(View view) {
-        TextView tv = (TextView) view.findViewById(R.id.quiz_questionCount_text);
+        TextView tv = view.findViewById(R.id.quiz_questionCount_text);
         tv.setText(currentQuestion + " / " + questionCount);
     }
 
     public void increaseResultIfCorrect(View view) {
         Log.v("QuizFragment", "Entered -> increaseResultIfCorrect");
-        RadioGroup rg = (RadioGroup) view.findViewById(R.id.quiz_radioGroup_answers);
+        RadioGroup rg = view.findViewById(R.id.quiz_radioGroup_answers);
         int selection = rg.getCheckedRadioButtonId();
-        RadioButton selectedAnswer = (RadioButton) view.findViewById(selection);
+        RadioButton selectedAnswer = view.findViewById(selection);
         if (selectedAnswer.getText() == validAnswerText) {
             Log.v("QuizFragment", "increaseResultIfCorrect -> answer correct, result increased.");
             quizResult++;
@@ -115,7 +114,7 @@ public class QuizFragment extends Fragment {
 
     public void nextQuestionHandler(View view) {
         Log.v("QuizFragment", "Entered -> nextQuestionHandler");
-        Button btn_next = (Button) view.findViewById(R.id.quiz_btn_next);
+        Button btn_next = view.findViewById(R.id.quiz_btn_next);
         if (currentQuestion == questionCount) {
             btn_next.setText(R.string.quiz_btn_finish);
         }
@@ -137,10 +136,11 @@ public class QuizFragment extends Fragment {
         });
     }
 
+    @SuppressLint("SetTextI18n")
     public void displayResults(View view) {
-        TextView tv_displayResult = (TextView) view.findViewById(R.id.quiz_question_text);
-        RadioGroup rg_answers = (RadioGroup) view.findViewById(R.id.quiz_radioGroup_answers);
-        Button btn_finnish = (Button) view.findViewById(R.id.quiz_btn_next);
+        TextView tv_displayResult = view.findViewById(R.id.quiz_question_text);
+        RadioGroup rg_answers = view.findViewById(R.id.quiz_radioGroup_answers);
+        Button btn_finnish = view.findViewById(R.id.quiz_btn_next);
 
         rg_answers.setVisibility(View.INVISIBLE);
         tv_displayResult.setText("Result: " + quizResult + " / " + questionCount);
@@ -150,9 +150,9 @@ public class QuizFragment extends Fragment {
 
     public void retakeQuizHandler(View view) {
         Log.v("QuizFragment", "Entered -> retakeQuizHandler");
-        Button btn_retake = (Button) view.findViewById(R.id.quiz_btn_retake);
-        Button btn_next = (Button) view.findViewById(R.id.quiz_btn_next);
-        RadioGroup rg_answers = (RadioGroup) view.findViewById(R.id.quiz_radioGroup_answers);
+        Button btn_retake = view.findViewById(R.id.quiz_btn_retake);
+        Button btn_next = view.findViewById(R.id.quiz_btn_next);
+        RadioGroup rg_answers = view.findViewById(R.id.quiz_radioGroup_answers);
 
         btn_retake.setOnClickListener(new View.OnClickListener() {
             @Override

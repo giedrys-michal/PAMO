@@ -14,9 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import pamo.bmicalc.R;
 
 public class BmiResultsFragment extends Fragment {
@@ -24,15 +21,11 @@ public class BmiResultsFragment extends Fragment {
     private CalculateViewModel cViewModel;
     private TextView tv_bmiResult, tv_energyResult, tv_category, tv_recipe;
 
-    public static BmiResultsFragment newInstance() {
-        return new BmiResultsFragment();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_bmi_results, container, false);
-        cViewModel = new ViewModelProvider(getActivity()).get(CalculateViewModel.class);
+        cViewModel = new ViewModelProvider(requireActivity()).get(CalculateViewModel.class);
         return view;
     }
 
@@ -40,10 +33,10 @@ public class BmiResultsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        tv_bmiResult = (TextView) view.findViewById(R.id.bmiResults_bmi_text);
-        tv_energyResult = (TextView) view.findViewById(R.id.bmiResults_energy_text);
-        tv_category = (TextView) view.findViewById(R.id.bmiResults_category_text);
-        tv_recipe = (TextView) view.findViewById(R.id.bmiResults_recipe_text);
+        tv_bmiResult = view.findViewById(R.id.bmiResults_bmi_text);
+        tv_energyResult = view.findViewById(R.id.bmiResults_energy_text);
+        tv_category = view.findViewById(R.id.bmiResults_category_text);
+        tv_recipe = view.findViewById(R.id.bmiResults_recipe_text);
 
         updateResults(
                 cViewModel.getStringMapValueByKey("bmiResult"),

@@ -14,19 +14,11 @@ class BmiResultsFragment : Fragment() {
         fun newInstance() = BmiResultsFragment()
     }
 
-    private lateinit var viewModel: BmiResultsViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_bmi_results, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(BmiResultsViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

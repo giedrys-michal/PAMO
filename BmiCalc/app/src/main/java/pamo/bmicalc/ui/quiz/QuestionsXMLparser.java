@@ -13,8 +13,7 @@ import java.util.List;
 
 public class QuestionsXMLparser {
     private static final String ns = null;
-    private InputStream xmlStream;
-    private XmlPullParserFactory pf;
+    private final InputStream xmlStream;
     private QuizQuestionsModel qqm;
 
     public QuizQuestionsModel getQqm() {
@@ -29,7 +28,7 @@ public class QuestionsXMLparser {
     public void parseXML() throws XmlPullParserException, IOException {
         try {
             Log.v("QuestionsXMLparser", "Entered -> parseXML");
-            pf = XmlPullParserFactory.newInstance();
+            XmlPullParserFactory pf = XmlPullParserFactory.newInstance();
             XmlPullParser xpp = pf.newPullParser();
             xpp.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             xpp.setInput(xmlStream, null);
@@ -67,8 +66,8 @@ public class QuestionsXMLparser {
     }
 
     private QuizQuestion parseQuestion(XmlPullParser parser) throws XmlPullParserException, IOException {
-        int question_id = 0;
-        String question_text = "";
+        int questionId = 0;
+        String questionText = "";
         List<QuizAnswer> answers = new ArrayList<>();
 
         parser.require(XmlPullParser.START_TAG, ns, "question");
@@ -78,16 +77,16 @@ public class QuestionsXMLparser {
             }
             String name = parser.getName();
             if (name.equals("question_id")) {
-                question_id = Integer.parseInt(readTagContents(parser, "question_id"));
+                questionId = Integer.parseInt(readTagContents(parser, "question_id"));
             } else if (name.equals("question_text")) {
-                question_text = readTagContents(parser, "question_text");
+                questionText = readTagContents(parser, "question_text");
             } else if (name.equals("answers")) {
                 answers = parseAnswers(parser);
             } else {
                 skip(parser);
             }
         }
-        return new QuizQuestion(question_id, question_text, answers);
+        return new QuizQuestion(questionId, questionText, answers);
     }
 
     private List<QuizAnswer> parseAnswers(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -109,9 +108,9 @@ public class QuestionsXMLparser {
     }
 
     private QuizAnswer parseAnswer(XmlPullParser parser) throws XmlPullParserException, IOException {
-        int answer_id = 0;
-        String answer_text = "";
-        boolean answer_valid = false;
+        int answerId = 0;
+        String answerText = "";
+        boolean answerValid = false;
 
         parser.require(XmlPullParser.START_TAG, ns, "answer");
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -120,16 +119,16 @@ public class QuestionsXMLparser {
             }
             String name = parser.getName();
             if (name.equals("answer_id")) {
-                answer_id = Integer.parseInt(readTagContents(parser, "answer_id"));
+                answerId = Integer.parseInt(readTagContents(parser, "answer_id"));
             } else if (name.equals("answer_text")) {
-                answer_text = readTagContents(parser, "answer_text");
+                answerText = readTagContents(parser, "answer_text");
             } else if (name.equals("answer_valid")) {
-                answer_valid = Boolean.parseBoolean(readTagContents(parser, "answer_valid"));
+                answerValid = Boolean.parseBoolean(readTagContents(parser, "answer_valid"));
             } else {
                 skip(parser);
             }
         }
-        return new QuizAnswer(answer_id, answer_text, answer_valid);
+        return new QuizAnswer(answerId, answerText, answerValid);
     }
 
     private String readTagContents(XmlPullParser parser, String tagName) throws XmlPullParserException, IOException {
